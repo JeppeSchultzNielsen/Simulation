@@ -1,0 +1,19 @@
+/run/initialize
+/vis/open OGL
+/vis/drawVolume
+/vis/viewer/set/autoRefresh true
+/vis/scene/add/trajectories smooth
+
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/list
+/vis/modeling/trajectories/drawByParticleID-0/set e- red
+/vis/modeling/trajectories/drawByParticleID-0/set proton blue
+/vis/modeling/trajectories/drawByParticleID-0/set neutron yellow
+/vis/modeling/trajectories/drawByParticleID-0/set gamma white
+/vis/modeling/trajectories/drawByParticleID-0/set nu_e brown
+/vis/modeling/trajectories/drawByParticleID-0/set anti_nu_e brown
+/vis/modeling/trajectories/drawByParticleID-0/set alpha blue
+/vis/modeling/trajectories/drawByParticleID-0/set triton magenta
+/vis/modeling/trajectories/drawByParticleID-0/set genericIon grey
+
+/run/beamOn 100
