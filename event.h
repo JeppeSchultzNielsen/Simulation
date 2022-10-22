@@ -24,8 +24,10 @@ public:
     void AddEdep2(G4double edep){fEdep2 += edep;}
     void AddEdepTot(G4double edep){fEdepTot += edep;}
     void writeAlphaE(G4double ekin){if(alphaE == 0) alphaE = ekin;}
-    void writeNeutronE(G4double ekin){if(alphaE == 0) neutronE = ekin;}
-    void writeTritonE(G4double ekin){if(alphaE == 0) tritonE = ekin;}
+    void writeNeutronE(G4double ekin){if(neutronE == 0) neutronE = ekin;}
+    void writeTritonE(G4double ekin){if(tritonE == 0) tritonE = ekin;}
+    void writeGammaE(G4double ekin){if(gammaE == 0) gammaE = ekin;}
+    void writeLi7E(G4double ekin){if(Li7E == 0) Li7E = ekin;}
 private:
     G4double fEdep1;
     G4double fEdep2;
@@ -33,6 +35,8 @@ private:
     G4double alphaE;
     G4double neutronE;
     G4double tritonE;
+    G4double gammaE;
+    G4double Li7E;
 };
 
 

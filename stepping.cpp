@@ -24,10 +24,16 @@ void MySteppingAction::UserSteppingAction(const G4Step *step) {
     G4LogicalVolume *fScoringVolume1 = detectorConstruction->GetScoringVolume1();
     G4LogicalVolume *fScoringVolume2 = detectorConstruction->GetScoringVolume2();
 
-    auto particleType = step -> GetTrack() -> GetParticleDefinition() -> GetParticleName();
+    G4String particleType = step -> GetTrack() -> GetParticleDefinition() -> GetParticleName();
+
+    //G4cout << particleType << G4endl;
 
     /*G4cout <<"Scoring2: " << fScoringVolume2 -> GetName() << G4endl;
     G4cout <<"Current: " <<  volume -> GetName() << G4endl;*/
+
+    /*if(particleType[2] == '5'){
+        G4cout << particleType << G4endl;
+    }*/
 
     G4double edep = step -> GetTotalEnergyDeposit();
     if(volume == fScoringVolume1){
@@ -39,16 +45,25 @@ void MySteppingAction::UserSteppingAction(const G4Step *step) {
     }
 
     if(particleType == "neutron"){
-        fEventAction ->writeNeutronE(step -> GetTrack() -> GetKineticEnergy());
+        fEventAction ->writeNeutronE(step -> GetPreStepPoint() -> GetKineticEnergy());
     }
 
     if(particleType == "alpha"){
-        fEventAction ->writeAlphaE(step -> GetTrack() -> GetKineticEnergy());
+        fEventAction ->writeAlphaE(step -> GetPreStepPoint() -> GetKineticEnergy());
     }
 
     if(particleType == "triton"){
-        fEventAction ->writeTritonE(step -> GetTrack() -> GetKineticEnergy());
+        fEventAction ->writeTritonE(step -> GetPreStepPoint() -> GetKineticEnergy());
     }
 
-    fEventAction ->AddEdepTot(edep);
+    if(particleType == "gamma"){
+        //G4cout << step -> GetPreStepPoint() -> GetKineticEnergy() << G4endl;
+        fEventAction ->writeGammaE(step -> GetPreStepPoint() -> GetKineticEnergy());
+    }
+
+    if(particleType == "Li7"){
+        fEventAction ->writeLi7E(step -> GetPreStepPoint() -> GetKineticEnergy());
+    }
+
+
 }

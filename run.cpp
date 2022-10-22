@@ -25,6 +25,8 @@ void MyRunAction::BeginOfRunAction(const G4Run*) {
     man ->CreateNtupleDColumn("AlphaE");
     man ->CreateNtupleDColumn("NeutronE");
     man ->CreateNtupleDColumn("TritonE");
+    man ->CreateNtupleDColumn("GammaE");
+    man ->CreateNtupleDColumn("Li7E");
     man -> FinishNtuple(1);
 }
 

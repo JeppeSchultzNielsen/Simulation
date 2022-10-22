@@ -24,10 +24,10 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 
     //cobalt is 27,60, 8Be is 4,8, 8Li is 3,8
     if(particle == G4Geantino::Geantino()){
-        G4int Z = 2;
+        G4int Z = 3;
         G4int A = 8;
         G4double charge = 0 * eplus;
-        G4double energy = 0 * keV;
+        G4double energy = 9670 * keV;
 
         G4ParticleDefinition *ion = G4IonTable::GetIonTable() -> GetIon(Z,A,energy);
 

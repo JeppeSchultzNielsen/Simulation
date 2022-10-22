@@ -4,7 +4,7 @@ project(Simulation)
 
 find_package(AUSALIB REQUIRED)
 
-list(APPEND CMAKE_PREFIX_PATH "/home/jeppe/devel/resources/geant4/geant4-v11.0.2-install/lib/")
+list(APPEND CMAKE_PREFIX_PATH "/home/jeppe/devel/resources/geant4/geant4-v11.0.2-MOD-install/lib/")
 
 find_package(Geant4 REQUIRED ui_all vis_all)
 

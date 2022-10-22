@@ -18,16 +18,16 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     //G4Material *worldMat = nist ->FindOrBuildMaterial("G4_AIR");
 
     //pV = nRT => n/V = p/RT => density = pressure * molar mass (assume N2) / (R * 293 K)
-    G4double density = 0.0001 * 14 / (8.31446261815324*293); //R in unit m3⋅Pa⋅K−1⋅mol−1 -> this is at pressure of 1e-6 mBar
+    G4double density = 1 * 14 / (8.31446261815324*293); //R in unit m3⋅Pa⋅K−1⋅mol−1 -> this is at pressure of 1e-6 mBar
     G4Material *vacuumMat = new G4Material("vacuum",density*g/m3,2);
     auto O = nist ->FindOrBuildElement("O");
     auto N = nist ->FindOrBuildElement("N");
     vacuumMat ->AddElement(O,20);
     vacuumMat ->AddElement(N,80);
 
-    density = 10*101.325 * 14 / (8.31446261815324*293);
-    G4Material *worldMat = new G4Material("vacuum",density*g/m3,1);
-    auto He3 = nist ->FindOrBuildElement("He");
+    density = 100000000*101.325 * 14 / (8.31446261815324*293);
+    G4Material *worldMat = new G4Material("h2",density*g/cm3,1);
+    auto He3 = nist ->FindOrBuildElement("H");
     worldMat ->AddElement(He3,1);
 
     G4Material *alMat = new G4Material("Aluminum",2.7*g/cm3,1);
